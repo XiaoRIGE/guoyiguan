@@ -9,13 +9,17 @@
     "lint": "node node_modules/@vue/cli-service/bin/vue-cli-service.js lint src --ext .vue,.js --fix"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "core-js": "^2.6.11",
     "cos-js-sdk-v5": "^0.5.22",
     "element-ui": "^2.13.0",
     "mta-h5-analysis": "^2.0.15",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2",
     "tim-js-sdk": "^2.7.6",
     "trtc-js-sdk": "^4.3.6",
     "vue": "^2.6.11",
+    "vue-router": "^3.4.5",
     "vuex": "^3.1.2"
   },
   "devDependencies": {
