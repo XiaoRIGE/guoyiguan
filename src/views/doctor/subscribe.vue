@@ -17,6 +17,8 @@ export default {
 
 <style lang="scss" scoped>
   .subscribe{
-
+    h1 {
+      color: $primary-deep;
+    }
   }
 </style>

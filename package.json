@@ -14,8 +14,6 @@
     "cos-js-sdk-v5": "^0.5.22",
     "element-ui": "^2.13.0",
     "mta-h5-analysis": "^2.0.15",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2",
     "tim-js-sdk": "^2.7.6",
     "trtc-js-sdk": "^4.3.6",
     "vue": "^2.6.11",
