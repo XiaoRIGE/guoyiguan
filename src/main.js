@@ -1,14 +1,16 @@
 import Vue from 'vue'
 // import { MessageBox, Row, Col, Button, Input, Loading, Dialog, Dropdown, DropdownMenu, DropdownItem } from 'element-ui'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import Avatar from './components/avatar.vue'
+// import SvgIcon from './components/SvgIcon.vue'
 // import Index from './index.vue'//原demo
 import APP from './App.vue'
 import store from './store/index'
 import router from './router/index'
 import tim from 'tim'
 import TIM from 'tim-js-sdk'
+import components from './views/components.js'
 import './assets/icon/iconfont.css'
 import './assets/icon/tim.css'
 
@@ -29,7 +31,8 @@ Vue.prototype.$store = store
 // Vue.use(Dropdown)
 // Vue.use(DropdownMenu)
 // Vue.use(DropdownItem)
-Vue.use(ElementUI);
+Vue.use(components)
+Vue.use(ElementUI)
 Vue.component('avatar', Avatar)
 new Vue({
   router,

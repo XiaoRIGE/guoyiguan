@@ -1,6 +1,7 @@
 <template>
   <div class="subscribe">
       <h1>门诊预约</h1>
+      <svg-icon name="first"></svg-icon>
   </div>
 </template>
 
