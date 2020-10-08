@@ -38,15 +38,15 @@
 <script>
 import { Notification } from 'element-ui'
 import { mapState } from 'vuex'
-import CurrentConversation from './components/conversation/current-conversation'
-import SideBar from './components/layout/side-bar'
-import Login from './components/user/login'
-import ImagePreviewer from './components/message/image-previewer.vue'
-import QrCodeList from './components/qr-code-list'
-import { translateGroupSystemNotice } from './utils/common'
-import CallLayer from './components/message/call-layer'
-import { ACTION } from './utils/trtcCustomMessageMap'
-import MTA from './utils/mta'
+import CurrentConversation from '../../components/conversation/current-conversation'
+import SideBar from '../../components/layout/side-bar'
+import Login from '../../components/user/login'
+import ImagePreviewer from '../../components/message/image-previewer.vue'
+import QrCodeList from '../../components/qr-code-list'
+import { translateGroupSystemNotice } from '../../utils/common'
+import CallLayer from '../../components/message/call-layer'
+import { ACTION } from '../../utils/trtcCustomMessageMap'
+import MTA from '../../utils/mta'
 
 
 export default {
@@ -357,7 +357,7 @@ body {
   font-family: 'Microsoft YaHei', '微软雅黑', 'MicrosoftJhengHei', 'Lantinghei SC', 'Open Sans', Arial, 'Hiragino Sans GB', 'STHeiti', 'WenQuanYi Micro Hei', SimSun, sans-serif;
   // font-family  "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif
   // text-shadow: $regular 0 0 0.05em
-  background-color: $bg;
+  // background-color: $bg;
   -ms-scroll-chaining: chained;
   -ms-overflow-style: none;
   -ms-content-zooming: zoom;
@@ -400,7 +400,7 @@ body {
   top: 0;
   left: 0;
   z-index: -1;
-  background: url('~@/./assets/image/bg.jpg') no-repeat 0 0;
+  // background: url('~@/../../assets/image/bg.jpg') no-repeat 0 0;
   background-size: cover;
   // filter blur(67px)
 }
