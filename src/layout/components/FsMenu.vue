@@ -49,23 +49,22 @@
 
 <script>
 export default {
-  name: "fs-menu",
-  data() {
+  name: 'fs-menu',
+  data () {
     return {
-      activeNames: ["1"],
-    };
+      activeNames: ['1']
+    }
   },
   methods: {
-    handleOpen(key, keyPath) {
-      // eslint-disable-next-line no-console
-      console.log(key, keyPath);
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
     },
-    handleClose(key, keyPath) {
+    handleClose (key, keyPath) {
       // eslint-disable-next-line no-console
-      console.log(key, keyPath);
-    },
-  },
-};
+      console.log(key, keyPath)
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

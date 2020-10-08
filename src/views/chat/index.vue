@@ -48,7 +48,6 @@ import CallLayer from '../../components/message/call-layer'
 import { ACTION } from '../../utils/trtcCustomMessageMap'
 import MTA from '../../utils/mta'
 
-
 export default {
   title: 'TIMSDK DEMO',
   components: {
@@ -70,18 +69,18 @@ export default {
       userID: state => state.user.userID
     }),
     // 是否显示 Loading 状态
-    showLoading() {
+    showLoading () {
       return !this.isSDKReady
     }
   },
 
-  mounted() {
+  mounted () {
     // 初始化监听器
     this.initListener()
   },
 
   watch: {
-    isLogin(next) {
+    isLogin (next) {
       if (next) {
         MTA.clickStat('link_two', { show: 'true' })
       }
@@ -89,7 +88,7 @@ export default {
   },
 
   methods: {
-    initListener() {
+    initListener () {
       // 登录成功后会触发 SDK_READY 事件，该事件触发后，可正常使用 SDK 接口
       this.tim.on(this.TIM.EVENT.SDK_READY, this.onReadyStateUpdate, this)
       // SDK NOT READT
@@ -108,15 +107,14 @@ export default {
       this.tim.on(this.TIM.EVENT.NET_STATE_CHANGE, this.onNetStateChange)
       // 已读回执
       this.tim.on(this.TIM.EVENT.MESSAGE_READ_BY_PEER, this.onMessageReadByPeer)
-
     },
-    onReceiveMessage({ data: messageList }) {
+    onReceiveMessage ({ data: messageList }) {
       this.handleVideoMessage(messageList)
       this.handleAt(messageList)
       this.handleQuitGroupTip(messageList)
       this.$store.commit('pushCurrentMessageList', messageList)
     },
-    onError({ data }) {
+    onError ({ data }) {
       if (data.message !== 'Network Error') {
         this.$store.commit('showMessage', {
           message: data.message,
@@ -124,11 +122,11 @@ export default {
         })
       }
     },
-    onMessageReadByPeer() {
+    onMessageReadByPeer () {
 
     },
-    onReadyStateUpdate({ name }) {
-      const isSDKReady = name === this.TIM.EVENT.SDK_READY ? true : false
+    onReadyStateUpdate ({ name }) {
+      const isSDKReady = name === this.TIM.EVENT.SDK_READY
       this.$store.commit('toggleIsSDKReady', isSDKReady)
 
       if (isSDKReady) {
@@ -146,7 +144,7 @@ export default {
         this.$store.dispatch('getBlacklist')
       }
     },
-    kickedOutReason(type) {
+    kickedOutReason (type) {
       switch (type) {
         case this.TIM.TYPES.KICKED_OUT_MULT_ACCOUNT:
           return '由于多实例登录'
@@ -158,7 +156,7 @@ export default {
           return ''
       }
     },
-    checkoutNetState(state) {
+    checkoutNetState (state) {
       switch (state) {
         case this.TIM.TYPES.NET_STATE_CONNECTED:
           return { message: '已接入网络', type: 'success' }
@@ -170,10 +168,10 @@ export default {
           return ''
       }
     },
-    onNetStateChange(event) {
+    onNetStateChange (event) {
       this.$store.commit('showMessage', this.checkoutNetState(event.data.state))
     },
-    onKickOut(event) {
+    onKickOut (event) {
       this.$store.commit('showMessage', {
         message: `${this.kickedOutReason(event.data.type)}被踢出，请重新登录。`,
         type: 'error'
@@ -181,13 +179,13 @@ export default {
       this.$store.commit('toggleIsLogin', false)
       this.$store.commit('reset')
     },
-    onUpdateConversationList(event) {
+    onUpdateConversationList (event) {
       this.$store.commit('updateConversationList', event.data)
     },
-    onUpdateGroupList(event) {
+    onUpdateGroupList (event) {
       this.$store.commit('updateGroupList', event.data)
     },
-    onReceiveGroupSystemNotice(event) {
+    onReceiveGroupSystemNotice (event) {
       const isKickedout = event.data.type === 4
       const isCurrentConversation =
         `GROUP${event.data.message.payload.groupProfile.groupID}` ===
@@ -210,7 +208,7 @@ export default {
      * 处理 @ 我的消息
      * @param {Message[]} messageList
      */
-    handleAt(messageList) {
+    handleAt (messageList) {
       // 筛选有 @ 符号的文本消息
       const atTextMessageList = messageList.filter(
         message =>
@@ -240,20 +238,20 @@ export default {
         }
       }
     },
-    selectConversation(conversationID) {
+    selectConversation (conversationID) {
       if (conversationID !== this.currentConversation.conversationID) {
-        this.$store.dispatch('checkoutConversation',conversationID)
+        this.$store.dispatch('checkoutConversation', conversationID)
       }
     },
-    isJsonStr(str) {
-      try{
+    isJsonStr (str) {
+      try {
         JSON.parse(str)
         return true
-      }catch {
+      } catch {
         return false
       }
     },
-    handleVideoMessage(messageList) {
+    handleVideoMessage (messageList) {
       const videoMessageList = messageList.filter(
         message => message.type === this.TIM.TYPES.MSG_CUSTOM && this.isJsonStr(message.payload.data)
       )
@@ -296,10 +294,10 @@ export default {
      * 使用 window.Notification 进行全局的系统通知
      * @param {Message} message
      */
-    notifyMe(message) {
+    notifyMe (message) {
       // 需检测浏览器支持和用户授权
       if (!('Notification' in window)) {
-        return
+
       } else if (window.Notification.permission === 'granted') {
         this.handleNotify(message)
       } else if (window.Notification.permission !== 'denied') {
@@ -311,7 +309,7 @@ export default {
         })
       }
     },
-    handleNotify(message) {
+    handleNotify (message) {
       const notification = new window.Notification('有人提到了你', {
         icon: 'https://webim-1252463788.file.myqcloud.com/demo/img/logo.dc3be0d4.png',
         body: message.payload.text
@@ -322,14 +320,14 @@ export default {
         notification.close()
       }
     },
-    handleLinkClick() {
+    handleLinkClick () {
       MTA.clickStat('link_two', { click: 'true' })
     },
     /**
      * 收到有群成员退群/被踢出的groupTip时，需要将相关群成员从当前会话的群成员列表中移除
      * @param {Message[]} messageList
      */
-    handleQuitGroupTip(messageList) {
+    handleQuitGroupTip (messageList) {
       // 筛选出当前会话的退群/被踢群的 groupTip
       const groupTips = messageList.filter(message => {
         return this.currentConversation.conversationID === message.conversationID &&

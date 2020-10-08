@@ -5,10 +5,12 @@
   },
   "extends": [
     "plugin:vue/essential",
-    "eslint:recommended"
+    "@vue/standard"
   ],
   "rules": {
-    
+    "no-irregular-whitespace": "off",
+    "no-console": "off",
+    "no-debugger": "off"
   },
   "parserOptions": {
     "parser": "babel-eslint"

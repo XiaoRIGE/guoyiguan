@@ -7,12 +7,12 @@
 <script>
 export default {
   name: 'subscribe',
-  data() { 
+  data () {
     return {
 
     }
   }
- }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -7,12 +7,12 @@
 <script>
 export default {
   name: 'home',
-  data() { 
+  data () {
     return {
 
     }
   }
- }
+}
 </script>
 
 <style lang="scss" scoped>
