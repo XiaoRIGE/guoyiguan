@@ -55,7 +55,7 @@ const conversationModules = {
      * @param {Object} state
      * @param {Conversation} conversation
      */
-    updateCurrentConversation(state, conversation) {
+    updateCurrentConversation (state, conversation) {
       state.currentConversation = conversation
       state.currentMessageList = []
       state.nextReqMessageID = ''
@@ -67,7 +67,7 @@ const conversationModules = {
      * @param {Object} state
      * @param {Conversation[]} conversationList
      */
-    updateConversationList(state, conversationList) {
+    updateConversationList (state, conversationList) {
       state.conversationList = conversationList
     },
     /**
@@ -75,7 +75,7 @@ const conversationModules = {
      * 调用时机：需要重置当前会话时，例如：当前会话是一个群组，正好被踢出群时（被踢群事件触发），重置当前会话
      * @param {Object} state
      */
-    resetCurrentConversation(state) {
+    resetCurrentConversation (state) {
       state.currentConversation = {}
     },
     /**
@@ -85,7 +85,7 @@ const conversationModules = {
      * @param {Message[]|Message} data
      * @returns
      */
-    pushCurrentMessageList(state, data) {
+    pushCurrentMessageList (state, data) {
       // 还没当前会话，则跳过
       if (!state.currentConversation.conversationID) {
         return
@@ -103,13 +103,13 @@ const conversationModules = {
      * @param {Object} state
      * @param {Message} message
      */
-    removeMessage(state, message) {
+    removeMessage (state, message) {
       const index = state.currentMessageList.findIndex(({ ID }) => ID === message.ID)
       if (index >= 0) {
         state.currentMessageList.splice(index, 1)
       }
     },
-    reset(state) {
+    reset (state) {
       Object.assign(state, {
         currentConversation: {},
         currentMessageList: [],
@@ -126,7 +126,7 @@ const conversationModules = {
      * @param {Object} context
      * @param {String} conversationID
      */
-    getMessageList(context, conversationID) {
+    getMessageList (context, conversationID) {
       if (context.state.isCompleted) {
         context.commit('showMessage', {
           message: '已经没有更多的历史消息了哦',
@@ -149,7 +149,7 @@ const conversationModules = {
      * @param {Object} context
      * @param {String} conversationID
      */
-    checkoutConversation(context, conversationID) {
+    checkoutConversation (context, conversationID) {
       context.commit('resetCurrentMemberList')
       // 1.切换会话前，将切换前的会话进行已读上报
       if (context.state.currentConversation.conversationID) {

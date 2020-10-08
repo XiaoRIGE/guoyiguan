@@ -13,10 +13,10 @@ const routes = [
     // redirect: '/index',
     // todo 检验登录状态
     // beforeEnter: (to, from, next) => {
-        // const loginInfo = Cookies.get('loginInfo')
-        // console.log(loginInfo)
-        // loginInfo ? next() : next({ path: '/login' })
-        // next()
+    // const loginInfo = Cookies.get('loginInfo')
+    // console.log(loginInfo)
+    // loginInfo ? next() : next({ path: '/login' })
+    // next()
     // },
     children: [
       {
@@ -42,8 +42,8 @@ const routes = [
         meta: {
           title: '聊天'
         }
-      },
-      
+      }
+
     ]
   }
 ]

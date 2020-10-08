@@ -4,20 +4,20 @@ const blacklistModule = {
     blacklist: []
   },
   mutations: {
-    updateBlacklist(state, blacklist) {
+    updateBlacklist (state, blacklist) {
       state.blacklist = blacklist
     },
-    removeFromBlacklist(state, userID) {
+    removeFromBlacklist (state, userID) {
       state.blacklist = state.blacklist.filter(item => item.userID !== userID)
     },
-    reset(state) {
+    reset (state) {
       Object.assign(state, {
         blacklist: []
       })
     }
   },
   actions: {
-    getBlacklist(context) {
+    getBlacklist (context) {
       tim
         .getBlacklist()
         .then(({ data }) => {
