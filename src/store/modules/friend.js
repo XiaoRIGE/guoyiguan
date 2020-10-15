@@ -4,10 +4,10 @@ const friendModules = {
     createGroupModelVisible: false
   },
   mutations: {
-    upadteFriendList(state, friendList) {
+    upadteFriendList (state, friendList) {
       state.friendList = friendList
     },
-    reset(state) {
+    reset (state) {
       Object.assign(state, {
         friendList: [],
         createGroupModelVisible: false

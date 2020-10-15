@@ -10,25 +10,25 @@ const groupModules = {
     hasGroupList: state => state.groupList.length > 0
   },
   mutations: {
-    updateGroupList(state, groupList) {
+    updateGroupList (state, groupList) {
       state.groupList = groupList
     },
-    updateCreateGroupModelVisible(state, visible) {
+    updateCreateGroupModelVisible (state, visible) {
       state.createGroupModelVisible = visible
     },
-    updateCurrentMemberList(state, memberList) {
+    updateCurrentMemberList (state, memberList) {
       state.currentMemberList = [...state.currentMemberList, ...memberList]
     },
-    deleteGroupMemeber(state, userID) {
+    deleteGroupMemeber (state, userID) {
       state.currentMemberList = state.currentMemberList.filter((member) => member.userID !== userID)
     },
-    deleteGroupMemberList(state, userIDList) {
+    deleteGroupMemberList (state, userIDList) {
       state.currentMemberList = state.currentMemberList.filter((member) => !userIDList.includes(member.userID))
     },
-    resetCurrentMemberList(state) {
+    resetCurrentMemberList (state) {
       state.currentMemberList = []
     },
-    reset(state) {
+    reset (state) {
       Object.assign(state, {
         groupList: [],
         currentMemberList: [],
@@ -37,10 +37,10 @@ const groupModules = {
     }
   },
   actions: {
-    updateGroupList(context, groupList) {
+    updateGroupList (context, groupList) {
       context.commit('updateGroupList', groupList)
     },
-    getGroupMemberList(context, groupID) {
+    getGroupMemberList (context, groupID) {
       return tim.getGroupMemberList({
         groupID: groupID,
         offset: context.state.currentMemberList.length,

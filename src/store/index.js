@@ -6,7 +6,7 @@ import user from './modules/user'
 import video from './modules/video'
 import friend from './modules/friend'
 import blacklist from './modules/blacklist'
-import {Message} from 'element-ui'
+import { Message } from 'element-ui'
 
 Vue.use(Vuex)
 
@@ -17,9 +17,9 @@ export default new Vuex.Store({
     message: undefined
   },
   getters: {
-    hidden(state) {
+    hidden (state) {
       // eslint-disable-next-line no-unused-vars
-      const temp = state.current 
+      const temp = state.current
       if (typeof document.hasFocus !== 'function') {
         return document.hidden
       }
@@ -27,16 +27,16 @@ export default new Vuex.Store({
     }
   },
   mutations: {
-    startComputeCurrent(state) {
+    startComputeCurrent (state) {
       state.intervalID = setInterval(() => {
         state.current = Date.now()
       }, 500)
     },
-    stopComputeCurrent(state) {
+    stopComputeCurrent (state) {
       clearInterval(state.intervalID)
       state.intervalID = 0
     },
-    showMessage(state, options) {
+    showMessage (state, options) {
       if (state.message) {
         state.message.close()
       }

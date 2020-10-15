@@ -12,5 +12,5 @@ window.setLogLevel = tim.setLogLevel
 tim.setLogLevel(4)
 
 // 注册 cos
-tim.registerPlugin({'cos-js-sdk':COSSDK})
+tim.registerPlugin({ 'cos-js-sdk' : COSSDK})
 export default tim
