@@ -3,6 +3,9 @@
     <h1 class="left">国医馆医师端logo</h1>
     <div class="right">
       <div>消息logo</div>
+      {{$t("common.home")}}
+      {{$t("message.hint1")}}
+      <span @click="changeLanguage">切换语言</span>
       <div class="user-info">
         <img
           class="avator"
@@ -16,11 +19,17 @@
 
 <script>
 export default {
-  name: "fs-header",
-  data() {
-    return {};
+  name: 'fs-header',
+  data () {
+    return {}
   },
-};
+  methods: {
+    changeLanguage () {
+      const lang = this.$i18n.locale === 'zh' ? 'tw' : 'zh'
+      this.$i18n.locale = lang
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>

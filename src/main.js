@@ -13,6 +13,8 @@ import TIM from 'tim-js-sdk'
 import components from './views/components.js'
 import './assets/icon/iconfont.css'
 import './assets/icon/tim.css'
+// 基于vue-i18n实现国际化
+import VueI18n from 'vue-i18n'
 
 window.tim = tim
 window.TIM = TIM
@@ -33,8 +35,18 @@ Vue.prototype.$store = store
 // Vue.use(DropdownItem)
 Vue.use(components)
 Vue.use(ElementUI)
+Vue.use(VueI18n)
+// 注册i18n实例并引入语言文件，文件格式等下解析
+const i18n = new VueI18n({
+  locale: 'zh',
+  messages: {
+    zh: require('@/assets/languages/zh.json'),
+    tw: require('@/assets/languages/zh-tw.json')
+  }
+})
 Vue.component('avatar', Avatar)
 new Vue({
   router,
+  i18n,
   render: h => h(APP)
 }).$mount('#app')
