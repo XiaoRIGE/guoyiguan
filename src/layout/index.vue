@@ -15,15 +15,15 @@
 </template>
 
 <script>
-import FsMenu from "./components/FsMenu";
-import FsHeader from "./components/FsHeader";
+import FsMenu from './components/FsMenu'
+import FsHeader from './components/FsHeader'
 export default {
-  name: "layout",
+  name: 'layout',
   components: { FsMenu, FsHeader },
-  data() {
-    return {};
-  },
-};
+  data () {
+    return {}
+  }
+}
 </script>
 
 <style lang="scss" scoped>

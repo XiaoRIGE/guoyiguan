@@ -1,7 +1,3 @@
-src/assets/*
-src/components/*
-src/utils/*
 src/tim.js
-src/views/chat/*
 node_modules/*
 sdk/*
