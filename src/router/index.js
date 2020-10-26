@@ -1,10 +1,17 @@
 /* eslint-disable no-console */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import doctor from './doctor'// 医师
+import patientCenter from './patientCenter'// 患者中心
+import cooperation from './cooperation'// 门诊协作
+import resourcesManage from './resourcesManage'// 资源管理
 // import Cookies from 'js-cookie'
 const Layout = () => import('../layout/index.vue')
 Vue.use(VueRouter)
 
+// export const menuData = [
+//   doctor
+// ]
 const routes = [
   {
     path: '/',
@@ -19,22 +26,22 @@ const routes = [
     // next()
     // },
     children: [
-      {
-        path: '/home',
-        name: 'home',
-        component: () => import('@/views/doctor/home'),
-        meta: {
-          title: '医生工作台'
-        }
-      },
-      {
-        path: '/subscribe',
-        name: 'subscribe',
-        component: () => import('@/views/doctor/subscribe'),
-        meta: {
-          title: '门诊预约'
-        }
-      },
+      // {
+      //   path: '/home',
+      //   name: 'home',
+      //   component: () => import('@/views/doctor/home'),
+      //   meta: {
+      //     title: '医生工作台'
+      //   }
+      // },
+      // {
+      //   path: '/subscribe',
+      //   name: 'subscribe',
+      //   component: () => import('@/views/doctor/subscribe'),
+      //   meta: {
+      //     title: '门诊预约'
+      //   }
+      // },
       {
         path: '/chat',
         name: 'chat',
@@ -42,7 +49,11 @@ const routes = [
         meta: {
           title: '聊天'
         }
-      }
+      },
+      ...doctor.children,
+      ...patientCenter.children,
+      ...cooperation.children,
+      ...resourcesManage.children
 
     ]
   }

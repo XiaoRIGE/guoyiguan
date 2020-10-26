@@ -1,9 +1,10 @@
 <template>
   <div class="layout">
-    <FsHeader></FsHeader>
+
     <div class="container">
       <FsMenu></FsMenu>
       <div class="content">
+        <FsHeader></FsHeader>
         <keep-alive>
           <router-view v-if="$route.meta.keepAlive" />
         </keep-alive>
