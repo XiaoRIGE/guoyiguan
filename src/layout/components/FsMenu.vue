@@ -12,6 +12,7 @@
       active-text-color="#268CFF"
       @open="handleOpen"
       @close="handleClose"
+      @select="handleSelect"
     >
       <el-submenu index="1">
         <template slot="title">
@@ -34,7 +35,6 @@
         <el-menu-item index="consultation">会诊</el-menu-item>
         <el-menu-item index="referral">转诊</el-menu-item>
       </el-submenu>
-      <!-- disabled -->
       <el-submenu index="4" >
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -44,7 +44,7 @@
         <el-menu-item index="acupuncture">针灸管理</el-menu-item>
         <el-menu-item index="product">成品管理</el-menu-item>
       </el-submenu>
-      <el-menu-item index="5">
+      <el-menu-item index="setting">
         <i class="el-icon-setting"></i>
         <span slot="title">个人设置</span>
       </el-menu-item>
@@ -70,6 +70,9 @@ export default {
     },
     handleClose (key, keyPath) {
       // eslint-disable-next-line no-console
+      console.log(key, keyPath)
+    },
+    handleSelect (key, keyPath) {
       console.log(key, keyPath)
     }
   }

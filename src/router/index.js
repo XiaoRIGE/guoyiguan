@@ -5,6 +5,7 @@ import doctor from './doctor'// 医师
 import patientCenter from './patientCenter'// 患者中心
 import cooperation from './cooperation'// 门诊协作
 import resourcesManage from './resourcesManage'// 资源管理
+import setting from './setting'// 个人设置
 // import Cookies from 'js-cookie'
 const Layout = () => import('../layout/index.vue')
 Vue.use(VueRouter)
@@ -53,8 +54,8 @@ const routes = [
       ...doctor.children,
       ...patientCenter.children,
       ...cooperation.children,
-      ...resourcesManage.children
-
+      ...resourcesManage.children,
+      ...setting.children
     ]
   }
 ]
