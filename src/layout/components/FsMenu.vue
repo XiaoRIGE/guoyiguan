@@ -4,12 +4,12 @@
     <!-- default-active="2"  class="el-menu-vertical-demo"-->
     <!-- #268CFF  #F9FBFF-->
     <el-menu
-      :default-active="$route.path"
+      :default-active="activeName"
       :router="true"
       :unique-opened="true"
       background-color="#268CFF"
-      text-color="#fff"
-      active-text-color="#268CFF"
+      text-color="#74b4ff"
+       active-text-color="#268CFF"
       @open="handleOpen"
       @close="handleClose"
       @select="handleSelect"
@@ -53,6 +53,7 @@
         <span slot="title">聊天室</span>
       </el-menu-item>
     </el-menu>
+
   </div>
 </template>
 
@@ -64,6 +65,12 @@ export default {
       activeNames: ['1']
     }
   },
+  computed: {
+    activeName: function () {
+      return this.$route.name
+    }
+  },
+
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath)
@@ -90,11 +97,14 @@ export default {
 
 }
 ::v-deep {
+  .is-active {
+      background: #fff!important;
+    }
   // 展开菜单
   .is-opened {
     div,li {
       background: #fff!important;
-      color: #268CFF!important;
+      // color: #268CFF!important;
     }
     .el-submenu__title {
       border-radius: 20px 0 0 0;
@@ -102,6 +112,7 @@ export default {
     li:nth-last-child(1){
        border-radius: 0 0 0 20px;
     }
+
   }
 }
 </style>
