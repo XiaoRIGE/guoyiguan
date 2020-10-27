@@ -15,6 +15,8 @@ import './assets/icon/iconfont.css'
 import './assets/icon/tim.css'
 // 基于vue-i18n实现国际化
 import VueI18n from 'vue-i18n'
+// 引入自定义、重置等样式
+import './assets/scss/index.scss'
 
 window.tim = tim
 window.TIM = TIM
