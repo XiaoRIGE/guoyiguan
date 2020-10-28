@@ -99,7 +99,13 @@ export default {
 ::v-deep {
   .is-active {
       background: #fff!important;
+      border-top-left-radius: 20px;
+      border-bottom-left-radius: 20px;
     }
+  .el-menu .el-menu--inline {
+    border-bottom-left-radius: 20px;
+    background-color: #fff!important;
+  }
   // 展开菜单
   .is-opened {
     div,li {

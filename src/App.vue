@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <!-- <h1>入口页面</h1> -->
-    <login v-if="islogin"></login>
+    <login v-if="!islogin"></login>
     <router-view v-else />
   </div>
 </template>
