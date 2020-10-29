@@ -91,9 +91,9 @@ export default {
 .fs-menu {
   padding-left: 10px;
   // width: 200px;
-  // height: 100vh;
+  height: 100vh;
   width: 302px;
-  height: 2250px;
+  // height: 2250px;
   background: linear-gradient(140deg, #0E7FFE 0%, #0D74E5 100%);
 
 }

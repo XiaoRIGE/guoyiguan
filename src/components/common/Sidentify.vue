@@ -1,3 +1,13 @@
+<!-- =========================================================================================
+     File Name: SIdentify
+     Description: 验证码组件
+     Component Name: SIdentify
+     ----------------------------------------------------------------------------------------
+     Item Name:
+     Author: whr
+     Creation time:  2020-10-29 22:10:59
+     Change time:  2020-10-29 22:10:59
+========================================================================================== -->
 <template>
  <div class="s-canvas">
  <canvas id="s-canvas" :width="contentWidth" :height="contentHeight"></canvas>

@@ -31,6 +31,8 @@ export default {
   .container {
     display: flex;
     .content {
+      box-sizing: border-box;
+      padding: 0 40px;
       width: 100%;
       background: #f0f3f8;
     }

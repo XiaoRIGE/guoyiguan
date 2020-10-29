@@ -1,7 +1,8 @@
 /* source-sans-pro-regular */
 @import url("https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,400,500,600,700");
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700");
-html,body {
+html,
+body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -52,4 +53,91 @@ input::-webkit-inner-spin-button {
 }
 input[type="number"] {
   -moz-appearance: textfield;
+}
+// element重置样式
+/*
+el-card
+*/
+.el-card {
+  background: #ffffff;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+}
+
+.el-card__header {
+  font-size: 18px;
+  font-family: PingFangTC-Light, PingFangTC;
+  font-weight: 300;
+  color: #000000;
+  line-height: 16px;
+}
+/**
+el-tab
+*/
+.el-tabs {
+  margin-top: -5px;
+}
+.el-tabs_item {
+  font-size: 16px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #666666;
+  line-height: 24px;
+}
+.el-tabs__item.is-active {
+  color: #1677ff;
+  font-weight: 500;
+}
+.el-tabs__nav-wrap::after {
+  height: 1px;
+}
+/**
+el-form
+*/
+.el-form-item__label {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #000000;
+}
+.el-input__inner {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  color: #333333;
+}
+/**
+el-table
+*/
+.el-table thead {
+  height: 54px;
+  background: #fafafa;
+  border-radius: 4px 4px 0px 0px;
+
+  font-size: 14px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 500;
+  color: #666666;
+  .cell {
+    font-weight: 600;
+  }
+}
+.el-table tbody td {
+  padding: 28px 0;
+}
+.el-table .cell {
+  
+font-size: 14px;
+font-family: PingFangSC-Regular, PingFang SC;
+font-weight: 500;
+color: #333333;
+}
+.el-table th, .el-table tr {
+  background: none;
+}
+/**
+el-button
+*/
+.el-button--text {
+  color: #1677FF;
 }
