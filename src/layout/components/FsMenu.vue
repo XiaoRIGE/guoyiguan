@@ -37,7 +37,8 @@
       </el-submenu>
       <el-submenu index="4" >
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <!-- <i class="el-icon-location"></i> -->
+          <svg-icon name="message"></svg-icon>
           <span>资源管理</span>
         </template>
         <el-menu-item index="prescription">中草药方剂管理</el-menu-item>

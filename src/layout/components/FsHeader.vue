@@ -1,6 +1,17 @@
 <template>
   <div class="fs-header">
-    <h1 class="left">国医馆医师端logo</h1>
+    <div class="info">
+      <div class="icon-box">
+        <svg-icon class="icon" name="message"></svg-icon>
+        <span class="point"></span>
+      </div>
+      <img
+        class="avator"
+        src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2625008281,94811485&fm=26&gp=0.jpg"
+      />
+    </div>
+    <!-- demo -->
+    <!-- <h1 class="left">国医馆医师端logo</h1>
     <div class="right">
       <div>消息logo</div>
       {{$t("common.home")}}
@@ -13,7 +24,7 @@
         />
         <span>王医师</span>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -34,25 +45,54 @@ export default {
 
 <style lang="scss" scoped>
 .fs-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .left {
-  }
-  .right {
+  .info {
+    box-sizing: border-box;
+    padding: 20px 76px 20px 0;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    .user-info {
-        display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
+  }
+  .icon-box {
+    position: relative;
+    margin-right: 46px;
+    .icon {
+      width: 20px;
     }
-    .avator {
-      width: 80px;
-      height: 80px;
+    .point {
+      position: absolute;
+      right: 4px;
+      top: 2px;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
       border-radius: 50%;
+      background: red;
     }
   }
+  .avator {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  // display: flex;
+  // justify-content: space-between;
+  // align-items: center;
+  // .left {
+  // }
+  // .right {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   .user-info {
+  //       display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   }
+  //   .avator {
+  //     width: 80px;
+  //     height: 80px;
+  //     border-radius: 50%;
+  //   }
+  // }
 }
 </style>

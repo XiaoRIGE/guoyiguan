@@ -1,6 +1,5 @@
 <template>
   <div class="layout">
-
     <div class="container">
       <FsMenu></FsMenu>
       <div class="content">
@@ -29,8 +28,12 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
-    .container {
-        display: flex;
+  .container {
+    display: flex;
+    .content {
+      width: 100%;
+      background: #f0f3f8;
     }
+  }
 }
 </style>
