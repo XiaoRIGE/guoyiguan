@@ -43,7 +43,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  // margin-bottom: 30px;
+  margin-bottom: 30px;
   margin-top: 40px;
   .page-info {
     font-size: 14px;

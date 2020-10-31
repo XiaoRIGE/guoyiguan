@@ -105,6 +105,8 @@ el-form
   font-family: PingFangSC-Regular, PingFang SC;
   font-weight: 400;
   color: #333333;
+  height: 36px;
+  line-height: 36px;
 }
 /**
 el-table
@@ -126,18 +128,47 @@ el-table
   padding: 28px 0;
 }
 .el-table .cell {
-  
-font-size: 14px;
-font-family: PingFangSC-Regular, PingFang SC;
-font-weight: 500;
-color: #333333;
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 500;
+  color: #333333;
 }
-.el-table th, .el-table tr {
+.el-table th,
+.el-table tr {
   background: none;
 }
 /**
 el-button
 */
+.el-button {
+  width: 80px;
+  height: 36px;
+  padding: 0;
+}
+
+.small {
+  width: 70px;
+  font-size: 14px;
+}
 .el-button--text {
-  color: #1677FF;
+  color: #1677ff;
+  width: auto;
+}
+.el-button--primary {
+  background: linear-gradient(140deg, #268cff 0%, #68b0ff 100%);
+}
+.el-button--primary:focus,
+.el-button--primary:hover {
+  background: linear-gradient(140deg, #268cff 0%, #68b0ff 100%);
+}
+
+/**
+el-dialog
+*/
+.el-dialog__header {
+  border-bottom: 1px solid #eeeeee;
+  font-size: 16px;
+  font-family: PingFangSC-Medium, PingFang SC;
+  font-weight: 600;
+  color: #333333;
 }

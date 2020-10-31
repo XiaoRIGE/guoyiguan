@@ -283,45 +283,6 @@
   background: rgba(148, 158, 168, 0.2);
 }
 
-/***** 有tabs的Card *******/
-.has-tabs {
-  .el-card__header {
-    padding-top: 0px;
-    padding-bottom: 0px;
-  }
-
-  .el-tabs__header {
-    margin: 0;
-  }
-
-  .el-tabs__item {
-    font-size: $font-18;
-    font-weight: $weight-500;
-    color: $placeholder;
-    font-family: PingFang SC;
-  }
-
-  .is-active {
-    color: $link;
-  }
-
-  .el-tabs__nav {
-    height: 64px;
-    @include flex-center;
-  }
-
-  .el-tabs__nav-wrap::after {
-    background-color: inherit;
-  }
-
-  .el-tabs__active-bar {
-    height: 3px;
-    background-color: $link;
-    box-sizing: border-box;
-    background-clip: content-box;
-  }
-}
-
 /***** 搜索输入框 *******/
 .search-params {
   .el-input__inner {
@@ -348,21 +309,6 @@
   }
 }
 
-.mission-list-box {
-  li {
-    padding: 20px 30px;
-    border-bottom: 1px solid rgba(208, 216, 222, 1);
-    .mission-title {
-      font-size: $font-16;
-      font-weight: $weight-500;
-      color: $title;
-      margin-bottom: 10px;
-    }
-  }
-  li:last-of-type {
-    border-bottom: none;
-  }
-}
 
 /***** 圆角按钮 *******/
 .fillet-btn {
@@ -381,12 +327,7 @@
   }
 }
 
-.card-no-padding {
-  .el-card__body {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
+
 
 /***** tabs-数量 *******/
 .to-reply-num {
@@ -407,39 +348,22 @@
   box-sizing: border-box;
 }
 
-/***** 新增评论 *******/
-.comment-operating {
-  @include flex-center(space-between);
-  &-left {
-    @include flex-center(flex-start);
-    position: relative;
-    .operating-tip {
-      font-size: $font-12;
-      font-weight: $weight-400;
-      color: $date;
-      width: 400px;
-      position: absolute;
-      top:4px;
-      left: 100px;
-    }
-    .svg-icon {
-      width: 24px;
-      height: 24px;
-      fill: #8b8d98;
-    }
-    .file {
-      li {
-        margin-top: 10px;
-      }
-    }
+// 描述：值 样式
+.info {
+  font-size: 14px;
+  font-family: PingFangSC-Regular, PingFang SC;
+  font-weight: 400;
+  line-height: 22px;
+  p {
+    margin-bottom: 10px;
   }
-  &-right {
-    button {
-      border-radius: 50px;
-      border: none !important;
-    }
-    .btn-gray-small {
-      background: rgba(240, 240, 240, 1);
-    }
+  .desc {
+    color: #999999;
+    display: inline-block;
+    // width: 70px;
+    width: 90px;
+  }
+  .value {
+    color: #000000;
   }
 }
