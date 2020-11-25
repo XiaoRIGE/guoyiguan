@@ -1,5 +1,5 @@
 <template>
-  <div class="review">
+  <div class="review screen">
     <div class="search-box">
       <el-form ref="form" :model="form" label-width="80px">
         <el-row :gutter="20" class="row">
@@ -119,7 +119,7 @@ export default {
 
 <style lang="scss" scoped>
 .review {
-  height: calc(100vh - 136px);
+  // height: calc(100vh - 136px);
   overflow: auto;
   width: 100%;
   background: #ffffff;

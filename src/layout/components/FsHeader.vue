@@ -2,12 +2,16 @@
   <div class="fs-header">
     <div class="info">
       <div class="icon-box">
-        <svg-icon class="icon" name="message"></svg-icon>
-        <span class="point"></span>
+        <!-- <svg-icon class="icon" name="message"></svg-icon> -->
+        <el-badge is-dot class="item">
+          <img src="../../assets/image/icon-message.png" class="icon" />
+        </el-badge>
+
+        <!-- <span class="point"></span> -->
       </div>
       <img
         class="avator"
-        src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2625008281,94811485&fm=26&gp=0.jpg"
+        src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=202760600,1268422708&fm=11&gp=0.jpg"
       />
     </div>
     <!-- demo -->
@@ -56,7 +60,7 @@ export default {
     position: relative;
     margin-right: 46px;
     .icon {
-      width: 20px;
+      width: 30px;
     }
     .point {
       position: absolute;

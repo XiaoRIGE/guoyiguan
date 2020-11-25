@@ -51,20 +51,21 @@ const routes = [
           title: '聊天'
         }
       },
-      {
-        path: '/login',
-        name: 'login',
-        component: () => import('@/views/login'),
-        meta: {
-          title: '登录'
-        }
-      },
+
       ...doctor.children,
       ...patientCenter.children,
       ...cooperation.children,
       ...resourcesManage.children,
       ...setting.children
     ]
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login'),
+    meta: {
+      title: '登录'
+    }
   }
 ]
 

@@ -42,7 +42,7 @@ export default {
   },
   methods: {
     goRouter (name) {
-      this.$router.push(name)
+      this.$router.push({ name })
     },
     goBack () {
       this.$router.back()
@@ -53,7 +53,11 @@ export default {
 
 <style lang="scss" scoped>
 .layout {
+  width: 100%;
+  height: 100%;
   .container {
+    width: 100%;
+    height: 100%;
     display: flex;
     .content {
       box-sizing: border-box;

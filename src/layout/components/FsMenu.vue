@@ -1,15 +1,16 @@
 <template>
   <div class="fs-menu">
-    <h2>logo</h2>
+    <img src="../../assets/image/x-logo.png" class="logo" />
     <!-- default-active="2"  class="el-menu-vertical-demo"-->
     <!-- #268CFF  #F9FBFF-->
+    <!-- background-color="#268CFF" -->
     <el-menu
       :default-active="activeName"
-      :router="true"
+      :router="false"
       :unique-opened="true"
-      background-color="#268CFF"
+
       text-color="#74b4ff"
-       active-text-color="#268CFF"
+      active-text-color="#268CFF"
       @open="handleOpen"
       @close="handleClose"
       @select="handleSelect"
@@ -35,7 +36,7 @@
         <el-menu-item index="consultation">会诊</el-menu-item>
         <el-menu-item index="referral">转诊</el-menu-item>
       </el-submenu>
-      <el-submenu index="4" >
+      <el-submenu index="4">
         <template slot="title">
           <!-- <i class="el-icon-location"></i> -->
           <svg-icon name="message"></svg-icon>
@@ -54,7 +55,6 @@
         <span slot="title">聊天室</span>
       </el-menu-item>
     </el-menu>
-
   </div>
 </template>
 
@@ -68,6 +68,7 @@ export default {
   },
   computed: {
     activeName: function () {
+      console.log('==', this.$route.name)
       return this.$route.name
     }
   },
@@ -81,7 +82,9 @@ export default {
       console.log(key, keyPath)
     },
     handleSelect (key, keyPath) {
-      console.log(key, keyPath)
+      console.log(key, 'key')
+      console.log('keyPath', keyPath)
+      this.$router.push({ name: key })
     }
   }
 }
@@ -94,32 +97,40 @@ export default {
   height: 100vh;
   width: 302px;
   // height: 2250px;
-  background: linear-gradient(140deg, #0E7FFE 0%, #0D74E5 100%);
-
+  background: linear-gradient(140deg, #0e7ffe 0%, #0d74e5 100%);
+  .logo {
+    width: 200px;
+    @include h-center();
+    margin-top: 70px;
+    margin-bottom: 38px;
+  }
 }
 ::v-deep {
   .is-active {
-      background: #fff!important;
-      border-top-left-radius: 20px;
-      border-bottom-left-radius: 20px;
-    }
+    background: #fff !important;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+  }
+  .el-menu,.el-menu-item {
+    background: transparent!important;
+  }
   .el-menu .el-menu--inline {
     border-bottom-left-radius: 20px;
-    background-color: #fff!important;
+    background-color: #fff !important;
   }
   // 展开菜单
   .is-opened {
-    div,li {
-      background: #fff!important;
+    div,
+    li {
+      background: #fff !important;
       // color: #268CFF!important;
     }
     .el-submenu__title {
       border-radius: 20px 0 0 0;
     }
-    li:nth-last-child(1){
-       border-radius: 0 0 0 20px;
+    li:nth-last-child(1) {
+      border-radius: 0 0 0 20px;
     }
-
   }
 }
 </style>

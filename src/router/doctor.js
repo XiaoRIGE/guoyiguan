@@ -22,6 +22,16 @@ export default {
       meta: {
         title: '门诊回顾'
       }
+    },
+    {
+      path: '/home/prescribing',
+      name: 'prescribing',
+      component: () => import('@/views/doctor/prescribing'),
+      meta: {
+        title: '開處方',
+        parent: 'home',
+        parentName: '醫師工作臺'
+      }
     }
   ]
 }

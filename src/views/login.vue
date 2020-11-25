@@ -11,10 +11,10 @@
 <template>
   <div class="login">
     <div class="bg">
-      <img src="../assets/image/bg-login.jpg" />
+      <img src="../assets/image/bg-login.png" class="bg-logo"/>
     </div>
     <div class="content">
-      <h1>logo</h1>
+      <img src="../assets/image/x-logo.png" class="logo">
       <!-- <h3 class="mt-65">诊所管理信息系统</h3> -->
       <h3 class="mt-65">診所管理信息系統</h3>
       <!-- 診所管理信息系統 -->
@@ -64,7 +64,7 @@
             >提交</el-button
           >
           <el-button @click="resetForm('loginForm')">重置</el-button> -->
-          <el-button type="text" class="btn">登录</el-button>
+          <el-button @click="goRouter" type="text" class="btn">登录</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -131,6 +131,9 @@ export default {
     this.getCode()
   },
   methods: {
+    goRouter () {
+      this.$router.push('home')
+    },
     getCode () {
       //   获取验证码
       this.code = getRandomNum()
@@ -157,7 +160,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  .bg {
+  .bg,.bg-logo {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -171,6 +174,11 @@ export default {
     background: #ffffff;
     box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.3);
     border-radius: 17px;
+    .logo {
+      @include h-center();
+      width: 245px;
+      height: 80px;
+    }
     h1 {
       text-align: center;
     }

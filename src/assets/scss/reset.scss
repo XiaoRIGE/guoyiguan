@@ -125,7 +125,8 @@ el-table
   }
 }
 .el-table tbody td {
-  padding: 28px 0;
+  // padding: 28px 0;
+  // 暫時注釋
 }
 .el-table .cell {
   font-size: 14px;
@@ -141,9 +142,10 @@ el-table
 el-button
 */
 .el-button {
-  width: 80px;
+  min-width: 80px;
   height: 36px;
-  padding: 0;
+  // padding: 0;
+  padding: 5px 16px;
 }
 
 .small {
