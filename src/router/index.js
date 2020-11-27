@@ -27,14 +27,14 @@ const routes = [
     // next()
     // },
     children: [
-      // {
-      //   path: '/home',
-      //   name: 'home',
-      //   component: () => import('@/views/doctor/home'),
-      //   meta: {
-      //     title: '医生工作台'
-      //   }
-      // },
+      {
+        path: '/',
+        name: 'home',
+        component: () => import('@/views/doctor/home'),
+        meta: {
+          title: '医生工作台'
+        }
+      },
       // {
       //   path: '/subscribe',
       //   name: 'subscribe',

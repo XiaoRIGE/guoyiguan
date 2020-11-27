@@ -16,7 +16,7 @@
             </el-form-item>
           </el-col>
           <el-col :span="4">
-            <el-button type="primary">查询</el-button>
+            <el-button @click="goRouter" type="primary">查询</el-button>
           </el-col>
         </el-row>
       </el-form>
@@ -71,35 +71,35 @@ export default {
       },
       tableData: [
         {
-          id: '12987122',
+          id: '2020-11-28',
           name: '王小虎',
           amount1: '234',
           amount2: '3.2',
           amount3: 10
         },
         {
-          id: '12987123',
+          id: '2020-11-28',
           name: '王小虎',
           amount1: '165',
           amount2: '4.43',
           amount3: 12
         },
         {
-          id: '12987124',
+          id: '2020-11-28',
           name: '王小虎',
           amount1: '324',
           amount2: '1.9',
           amount3: 9
         },
         {
-          id: '12987125',
+          id: '2020-11-28',
           name: '王小虎',
           amount1: '621',
           amount2: '2.2',
           amount3: 17
         },
         {
-          id: '12987126',
+          id: '2020-11-28',
           name: '王小虎',
           amount1: '539',
           amount2: '4.1',
@@ -112,6 +112,9 @@ export default {
   methods: {
     pageChange (index) {
       this.paginationConfig.currentPage = index
+    },
+    goRouter () {
+      this.$router.push({ name: 'todayDetail' })
     }
   }
 }

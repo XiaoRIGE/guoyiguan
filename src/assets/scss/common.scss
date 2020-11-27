@@ -375,6 +375,7 @@
 .upload-btn {
   span {
     @include flex-center();
+    height: 16px;
   }
  
   box-sizing: border-box;
@@ -390,4 +391,7 @@
     width: 20px;
     // height: 12px;
   }
+}
+.inblock {
+  display: inline-block;
 }

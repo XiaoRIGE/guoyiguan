@@ -137,7 +137,7 @@
         <el-table-column prop="date" label="手机"></el-table-column>
         <el-table-column prop="date" label="患者来源"></el-table-column>
         <el-table-column prop="date" label="疾病"></el-table-column>
-        <el-table-column prop="address" min-width="120" label="操作">
+        <el-table-column prop="address" min-width="140" label="操作">
           <template slot-scope="scope">
             <el-button @click="handleShow(scope.row)" type="text" size="small"
               >修改</el-button

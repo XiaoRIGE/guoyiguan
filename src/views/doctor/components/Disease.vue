@@ -68,5 +68,10 @@ export default {
 
 <style scoped lang="scss">
 .disease {
+  .upload-btn {
+    span {
+      height: 16px;
+    }
+  }
 }
 </style>

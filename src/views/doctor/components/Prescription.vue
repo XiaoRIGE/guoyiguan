@@ -15,7 +15,7 @@
         <el-form ref="form" :model="form">
           <el-row :gutter="20">
             <el-col :span="2"><p class="title">處方</p></el-col>
-            <el-col :span="2">
+            <el-col :span="3">
               <el-form-item>
                 <el-select v-model="form.region" placeholder="请选择活动区域">
                   <el-option label="飲片" value="a"></el-option>
@@ -46,7 +46,7 @@
           </el-row>
         </el-form>
       </div>
-      <PrescriptionItem :PrescriptionType="index+1" v-for="(item,index) in 4" :key="index" class="mb-10"></PrescriptionItem>
+      <PrescriptionItem :PrescriptionType="index+1" :index="index+1"  v-for="(item,index) in 4" :key="index" class="mb-10"></PrescriptionItem>
     </el-card>
   </div>
 </template>

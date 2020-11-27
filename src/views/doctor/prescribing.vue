@@ -13,7 +13,7 @@
     <!-- <h1>開處方</h1> -->
     <!-- todo 隱藏菜單欄功能 -->
     <el-row :gutter="20">
-      <el-col :span="18">
+      <el-col :span="17">
         <!-- 病症信息 -->
         <el-card class="box-card mb-20">
           <div slot="header" class="clearfix">
@@ -32,16 +32,9 @@
 
           <Prescription></Prescription>
       </el-col>
-      <el-col :span="6">
+      <el-col :span="7">
         <!-- 既往病例 -->
-        <el-card class="box-card mb-20">
-          <div slot="header" class="clearfix">
-            <span>既往病例</span>
-          </div>
-          <div v-for="o in 4" :key="o" class="text item">
-            {{ "列表内容 " + o }}
-          </div>
-        </el-card>
+          <Currency class="mb-20"></Currency>
         <!-- 收費明細 -->
         <Expenses></Expenses>
 
@@ -55,10 +48,11 @@ import Disease from './components/Disease'
 import Diagnosis from './components/Diagnosis'
 import Prescription from './components/Prescription'
 import Expenses from './components/Expenses'
+import Currency from './components/Currency'
 
 export default {
   name: 'Prescribing',
-  components: { Disease, Diagnosis, Prescription, Expenses },
+  components: { Disease, Diagnosis, Prescription, Expenses, Currency },
   data () {
     return {}
   },
@@ -69,5 +63,14 @@ export default {
 
 <style scoped lang="scss">
 .Prescribing {
+  .el-card__header {
+    .clearfix {
+
+font-size: 18px;
+font-family: PingFangTC-Light, PingFangTC;
+font-weight: 500;
+color: #000000;
+    }
+  }
 }
 </style>
