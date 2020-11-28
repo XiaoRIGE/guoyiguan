@@ -12,7 +12,7 @@
   <div class="addConsultation">
     <el-card class="box-card">
       <div slot="header">
-        <span>{{title}}</span>
+        <span>{{ title }}</span>
       </div>
       <div class="wrapper">
         <el-form ref="form" :model="form" label-width="80px">
@@ -46,6 +46,14 @@
                 </el-select>
               </el-form-item>
             </el-col>
+            <el-col :span="5">
+              <el-form-item label="初/復診">
+                <el-radio-group v-model="form.isfirst">
+                  <el-radio label="初診"></el-radio>
+                  <el-radio label="復診"></el-radio>
+                </el-radio-group>
+              </el-form-item>
+            </el-col>
           </el-row>
           <el-row>
             <el-col :span="12">
@@ -61,7 +69,7 @@
               </el-form-item>
             </el-col>
           </el-row>
-          <el-row>
+          <el-row v-if="isConsultation">
             <el-col :span="12">
               <el-form-item label="病历图片">
                 <el-upload
@@ -82,7 +90,7 @@
           </el-row>
           <el-row>
             <el-col :span="5">
-              <el-form-item label="会诊医师">
+              <el-form-item :label="isConsultation ? '會診醫師' : '轉診醫師'">
                 <el-select v-model="form.region" placeholder="请选择">
                   <el-option label="区域一" value="shanghai"></el-option>
                   <el-option label="区域二" value="beijing"></el-option>
@@ -92,7 +100,7 @@
           </el-row>
           <el-row>
             <el-col :span="5">
-              <el-form-item label="会诊时间">
+              <el-form-item :label="isConsultation ? '會診時間' : '轉診時間'">
                 <el-date-picker
                   v-model="form.value1"
                   type="datetime"
@@ -103,10 +111,17 @@
             </el-col>
           </el-row>
 
-          <el-row>
+          <el-row v-if="isConsultation">
             <el-col :span="12">
               <el-form-item label="会诊目的及要求">
                 <el-input type="textarea" v-model="form.desc"></el-input>
+              </el-form-item>
+            </el-col>
+          </el-row>
+          <el-row v-if="!isConsultation">
+            <el-col :span="12">
+              <el-form-item label="治療意見/出院小結">
+                <el-input type="textarea" v-model="form.zongjie"></el-input>
               </el-form-item>
             </el-col>
           </el-row>
@@ -127,7 +142,9 @@ export default {
         name: '',
         region: '',
         desc: '',
-        value1: ''
+        value1: '',
+        isfirst: '', // 轉診
+        zongjie: '' // 轉診
       },
       fileList: [
         {
@@ -141,6 +158,12 @@ export default {
             'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'
         }
       ]
+    }
+  },
+  computed: {
+    // 是會診
+    isConsultation () {
+      return this.$route.query.type === 'consultation'
     }
   },
   created () {

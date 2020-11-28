@@ -29,7 +29,12 @@
             <!-- type，isSelected，day -->
           </template>
         </el-calendar>
-        <el-button @click="dialogVisible = true" type="primary" class="my-button">添加預約</el-button>
+        <el-button
+          @click="dialogVisible = true"
+          type="primary"
+          class="my-button"
+          >添加預約</el-button
+        >
       </el-col>
       <el-col class="right" :span="12">
         <el-table :data="tableData" style="width: 100%">
@@ -39,7 +44,15 @@
           <el-table-column prop="time" label="預約時間"> </el-table-column>
           <el-table-column prop="source" label="會診來源"> </el-table-column>
           <el-table-column prop="address" label="就診地點"> </el-table-column>
-          <el-table-column prop="status" label="狀態"> </el-table-column>
+          <el-table-column prop="status" label="狀態">
+            <template slot-scope="scope">
+              <span
+                class="status-style"
+                :class="'status' + scope.row.statusCode"
+                >{{ scope.row.status }}</span
+              >
+            </template>
+          </el-table-column>
           <el-table-column min-width="200" label="操作">
             <template slot-scope="scope">
               <span
@@ -62,7 +75,10 @@
         </div>
       </el-col>
     </el-row>
-    <AddAppointment @updateDialogVisible="dialogVisible = false" :dialogVisible="dialogVisible"></AddAppointment>
+    <AddAppointment
+      @updateDialogVisible="dialogVisible = false"
+      :dialogVisible="dialogVisible"
+    ></AddAppointment>
   </div>
 </template>
 
@@ -88,7 +104,8 @@ export default {
           time: '2020-11-20',
           source: '綫上預約',
           address: '綫上就診',
-          status: '已取消'
+          status: '已取消',
+          statusCode: '0'
         },
         {
           user: '王二',
@@ -97,7 +114,8 @@ export default {
           time: '2020-11-20',
           source: '綫上預約',
           address: '綫上就診',
-          status: '已就診'
+          status: '已就診',
+          statusCode: '1'
         },
         {
           user: '王二',
@@ -106,7 +124,8 @@ export default {
           time: '2020-11-20',
           source: '綫上預約',
           address: '綫上就診',
-          status: '未到期'
+          status: '未到期',
+          statusCode: '2'
         },
         {
           user: '王二',
@@ -115,11 +134,12 @@ export default {
           time: '2020-11-20',
           source: '綫上預約',
           address: '綫上就診',
-          status: '已取消'
+          status: '已取消',
+          statusCode: '0'
         }
       ],
       paginationConfig: {
-        total: 4,
+        total: 35,
         currentPage: 1,
         pageSize: 10
       },
@@ -172,10 +192,42 @@ export default {
   }
   .right {
     background: #fff;
+    ::v-deep {
+      .el-table {
+        // padding-left: 30px;
+      }
+
+    }
     .corlor-blue {
       display: inline-block;
       padding: 10px;
       color: #3b98ff;
+    }
+    .status-style {
+      box-sizing: border-box;
+      width: 52px;
+      height: 22px;
+      line-height: 22px;
+      padding: 0 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      font-family: PingFangSC-Regular, PingFang SC;
+      font-weight: 400;
+    }
+    .status0 {
+      background: #e2e2e2;
+      border: 1px solid #cacacc;
+      color: #cacacc;
+    }
+    .status1 {
+      background: #f0ffe0;
+      border: 1px solid #589f0c;
+      color: #589f0c;
+    }
+    .status2 {
+      background: #fff1eb;
+      border: 1px solid #ffb999;
+      color: #ffb999;
     }
   }
 }

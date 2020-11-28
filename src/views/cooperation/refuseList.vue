@@ -1,7 +1,7 @@
 <!-- =========================================================================================
-     File Name: consultation
-     Description: 会诊
-     Component Name: consultation
+     File Name: refuseList
+     Description: 已拒絕列表
+     Component Name: refuseList
      ----------------------------------------------------------------------------------------
      Item Name:
      Author: srj
@@ -9,7 +9,7 @@
      Change time:  2020-10-26 20:28:32
 ========================================================================================== -->
 <template>
-  <div class="consultation">
+  <div class="refuseList">
     <div class="search-box">
       <el-form ref="form" :model="form" label-width="80px">
         <el-row class="row" :gutter="20">
@@ -42,7 +42,6 @@
           <el-col :span="6">
             <el-button>查询</el-button>
             <el-button @click="goRouter" type="primary">添加会诊</el-button>
-            <el-button @click="dialogVisible = true">點擊查看會診申請</el-button>
           </el-col>
           <el-col :span="4">
             <div class="flex-right"><el-button @click="handleClcik">已拒绝列表</el-button></div>
@@ -79,33 +78,19 @@
         </el-table-column>
         <el-table-column prop="date" label="会诊时间"></el-table-column>
 
-        <el-table-column prop="address" min-width="120" label="操作">
-          <template slot-scope="scope">
-            <el-button @click="handleShow(scope.row)" type="text" size="small"
-              >查看</el-button
-            >
-            <el-divider direction="vertical" />
-            <el-button @click="handleShow(scope.row)" type="text" size="small"
-              >取消</el-button
-            >
-          </template>
-        </el-table-column>
       </el-table>
       <Pagination
         :paginationConfig="paginationConfig"
         @pageChange="pageChange"
       ></Pagination>
-      <!-- 申請會診彈窗 -->
-      <ApplyComponents @updateDialogVisible="dialogVisible = false" :dialogVisible="dialogVisible" ></ApplyComponents>
     </div>
   </div>
 </template>
 
 <script>
 import Pagination from '@/components/common/Pagination'
-import ApplyComponents from './components/ApplyComponents'
 export default {
-  name: 'consultation',
+  name: 'refuseList',
   data () {
     return {
       form: {
@@ -142,33 +127,27 @@ export default {
         total: 50,
         currentPage: 1,
         pageSize: 10
-      },
-      dialogVisible: false
+      }
     }
   },
-  components: { Pagination, ApplyComponents },
+  components: { Pagination },
   methods: {
     pageChange (index) {
       this.paginationConfig.currentPage = index
     },
     // 添加会诊
     goRouter () {
-      this.$router.push({ name: 'addConsultation', query: { type: 'consultation' } })
+      this.$router.push({ name: 'addConsultation', query: { type: 'refuseList' } })
     },
     handleClcik () {
       this.$router.push({ name: 'refuseList' })
-    },
-    // 查看會診详情
-    handleShow (row) {
-      console.log(row)
-      this.$router.push({ name: 'referralDetails', query: { type: 'consultation' } })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.consultation {
+.refuseList {
   height: calc(100vh - 136px);
   width: 100%;
   overflow: auto;

@@ -110,14 +110,14 @@ export default {
     pageChange (index) {
       this.paginationConfig.currentPage = index
     },
-    // 添加会诊
+    // 添加轉诊
     goRouter () {
       this.$router.push({ name: 'addConsultation', query: { type: 'referral' } })
     },
     // 查看转诊详情
     handleShow (row) {
       console.log(row)
-      this.$router.push({ name: 'referralDetails' })
+      this.$router.push({ name: 'referralDetails', query: { type: 'referral' } })
     }
   }
 }

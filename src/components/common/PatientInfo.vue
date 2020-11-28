@@ -60,6 +60,7 @@ export default {
   // 左侧
   .box-card {
     height: 100%;
+    padding-bottom: 15px;
   }
 }
 </style>

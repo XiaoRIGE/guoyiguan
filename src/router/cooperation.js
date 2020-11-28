@@ -34,7 +34,17 @@ export default {
       name: 'referralDetails',
       component: () => import('@/views/cooperation/referralDetails'),
       meta: {
-        title: '转诊详情',
+        title: '详情', // 转诊详情
+        parent: 'consultation',
+        parentName: '会诊'
+      }
+    },
+    {
+      path: '/consultation/refuseList',
+      name: 'refuseList',
+      component: () => import('@/views/cooperation/refuseList'),
+      meta: {
+        title: '已拒絕列表',
         parent: 'consultation',
         parentName: '会诊'
       }
