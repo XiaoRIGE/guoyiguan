@@ -12,99 +12,92 @@
   <div class="product">
     <el-card>
       <el-tabs v-model="activeName" @tab-click="handleClick">
-        <el-tab-pane label="中成药" name="first">
-          <el-form
-            class="search-box"
-            ref="form"
-            :model="form"
-            label-width="40px"
-          >
-            <el-row class="row" :gutter="20">
-              <el-col :span="4">
-                <el-form-item label="名称">
-                  <el-input v-model="form.name"></el-input>
-                </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                <el-form-item label="类型">
-                  <el-select v-model="form.region" placeholder="请选择活动区域">
-                    <el-option label="区域一" value="shanghai"></el-option>
-                    <el-option label="区域二" value="beijing"></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                <el-form-item label="疾病">
-                  <el-select v-model="form.region" placeholder="请选择活动区域">
-                    <el-option label="区域一" value="shanghai"></el-option>
-                    <el-option label="区域二" value="beijing"></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                <el-form-item label="疗程">
-                  <el-select v-model="form.region" placeholder="请选择活动区域">
-                    <el-option label="区域一" value="shanghai"></el-option>
-                    <el-option label="区域二" value="beijing"></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                <el-form-item label="功效">
-                  <el-select v-model="form.region" placeholder="请选择活动区域">
-                    <el-option label="区域一" value="shanghai"></el-option>
-                    <el-option label="区域二" value="beijing"></el-option>
-                  </el-select>
-                </el-form-item>
-              </el-col>
-              <el-col :span="4">
-                <div class="btn-box">
-                  <el-button type="primary">查询</el-button>
-                </div>
-              </el-col>
-            </el-row>
-          </el-form>
-          <div class="wrapper">
-            <el-table
-              @selection-change="handleSelectionChange"
-              :data="tableData"
-              style="width: 100%"
-            >
-              <el-table-column type="selection" width="55"> </el-table-column>
-              <!-- type="expand" -->
-              <el-table-column prop="name" label="分类" >
-                <!-- <template slot-scope="scope">
+        <el-tab-pane label="中成药" name="first"> </el-tab-pane>
+        <el-tab-pane label="健康食品" name="second"></el-tab-pane>
+        <el-tab-pane label="健康用品" name="third"></el-tab-pane>
+      </el-tabs>
+
+      <el-form class="search-box" ref="form" :model="form" label-width="40px">
+        <el-row class="row" :gutter="20">
+          <el-col :span="4">
+            <el-form-item label="名称">
+              <el-input v-model="form.name"></el-input>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="类型">
+              <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="疾病">
+              <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="疗程">
+              <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="功效">
+              <el-select v-model="form.region" placeholder="请选择活动区域">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <div class="btn-box">
+              <!-- type="primary" -->
+              <el-button >查询</el-button>
+            </div>
+          </el-col>
+        </el-row>
+      </el-form>
+      <div class="wrapper">
+        <el-table
+          @selection-change="handleSelectionChange"
+          :data="tableData"
+          style="width: 100%"
+        >
+          <el-table-column type="selection" width="55"> </el-table-column>
+          <!-- type="expand" -->
+          <el-table-column prop="name" label="分类">
+            <!-- <template slot-scope="scope">
                   <span>{{ scope.row.name }}</span>
                 </template> -->
-              </el-table-column>
-              <el-table-column prop="name" label="成品名称"> </el-table-column>
-              <el-table-column prop="name" label="类型"> </el-table-column>
-              <el-table-column prop="name" label="疾病"> </el-table-column>
-              <el-table-column prop="name" label="症候"> </el-table-column>
-              <el-table-column prop="address" min-width="120" label="操作">
-                <template slot-scope="scope">
-                  <el-button
-                    @click="handleShow(scope.row)"
-                    type="text"
-                    size="small"
-                    >查看</el-button
-                  >
-                  <!-- <el-divider direction="vertical" />
+          </el-table-column>
+          <el-table-column prop="name" label="成品名称"> </el-table-column>
+          <el-table-column prop="name" label="类型"> </el-table-column>
+          <el-table-column prop="name" label="疾病"> </el-table-column>
+          <el-table-column prop="name" label="症候"> </el-table-column>
+          <el-table-column prop="address" min-width="120" label="操作">
+            <template slot-scope="scope">
+              <el-button @click="handleShow(scope.row)" type="text" size="small"
+                >查看</el-button
+              >
+              <!-- <el-divider direction="vertical" />
             <el-button @click="handleShow(scope.row)" type="text" size="small"
               >详情</el-button
             > -->
-                </template>
-              </el-table-column>
-            </el-table>
-            <Pagination
-        :paginationConfig="paginationConfig"
-        @pageChange="pageChange"
-      ></Pagination>
-          </div>
-        </el-tab-pane>
-        <el-tab-pane label="健康食品" name="second">健康食品</el-tab-pane>
-        <el-tab-pane label="健康用品" name="third">健康用品</el-tab-pane>
-      </el-tabs>
+            </template>
+          </el-table-column>
+        </el-table>
+        <Pagination
+          :paginationConfig="paginationConfig"
+          @pageChange="pageChange"
+        ></Pagination>
+      </div>
     </el-card>
   </div>
 </template>
@@ -154,6 +147,10 @@ export default {
   methods: {
     handleClick () {
       console.log('切换tab')
+    },
+    handleShow (row) {
+      console.log(row)
+      this.$router.push({ name: 'goodDetail' })
     },
     handleSelectionChange (val) {
       this.multipleSelection = val

@@ -1,7 +1,7 @@
 <!-- =========================================================================================
-     File Name: acupuncture
-     Description: 針灸管理
-     Component Name: acupuncture
+     File Name: herbal
+     Description: 中草藥管理
+     Component Name: herbal
      ----------------------------------------------------------------------------------------
      Item Name:
      Author: srj
@@ -9,17 +9,17 @@
      Change time:  2020-10-26 20:38:02
 ========================================================================================== -->
 <template>
-  <div class="acupuncture">
+  <div class="herbal">
     <el-card>
 
       <el-form class="search-box" ref="form" :model="form" label-width="40px">
         <el-row class="row" :gutter="20">
-          <el-col :span="3">
+          <el-col :span="4">
             <el-form-item label="名称">
               <el-input v-model="form.name"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4">
             <el-form-item label="类型">
               <el-select v-model="form.region" placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
@@ -27,7 +27,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4">
             <el-form-item label="疾病">
               <el-select v-model="form.region" placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
@@ -35,7 +35,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4">
             <el-form-item label="疗程">
               <el-select v-model="form.region" placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
@@ -43,7 +43,7 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4">
             <el-form-item label="功效">
               <el-select v-model="form.region" placeholder="请选择活动区域">
                 <el-option label="区域一" value="shanghai"></el-option>
@@ -51,15 +51,10 @@
               </el-select>
             </el-form-item>
           </el-col>
-          <el-col :span="3">
+          <el-col :span="4">
             <div class="btn-box">
+              <!-- type="primary" -->
               <el-button >查询</el-button>
-              <el-button type="primary">新增處方</el-button>
-            </div>
-          </el-col>
-          <el-col :span="3">
-            <div class="btn-box">
-              <el-button @click="goRouter">申請記錄</el-button>
             </div>
           </el-col>
         </el-row>
@@ -77,7 +72,7 @@
                   <span>{{ scope.row.name }}</span>
                 </template> -->
           </el-table-column>
-          <el-table-column prop="name" label="處方名称"> </el-table-column>
+          <el-table-column prop="name" label="成品名称"> </el-table-column>
           <el-table-column prop="name" label="类型"> </el-table-column>
           <el-table-column prop="name" label="疾病"> </el-table-column>
           <el-table-column prop="name" label="症候"> </el-table-column>
@@ -86,7 +81,7 @@
               <el-button @click="handleShow(scope.row)" type="text" size="small"
                 >查看</el-button
               >
-              <el-button @click="handleEdit(scope.row)" type="text" size="small"
+              <el-button  type="text" size="small"
                 >修改</el-button
               >
               <el-button type="text" size="small"
@@ -111,7 +106,7 @@
 <script>
 import Pagination from '@/components/common/Pagination'
 export default {
-  name: 'acupuncture',
+  name: 'herbal',
   data () {
     return {
       form: {
@@ -159,19 +154,16 @@ export default {
     pageChange (index) {
       this.paginationConfig.currentPage = index
     },
-    goRouter () {
-      this.$router.push({ name: 'submitList' })
-    },
-    handleEdit (row) {
+    handleShow (row) {
       console.log(row)
-      this.$router.push({ name: 'edit' })
+      this.$router.push({ name: 'herbalDetail' })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.acupuncture {
+.herbal {
   .search-box {
     .row {
       box-sizing: border-box;

@@ -395,3 +395,35 @@
 .inblock {
   display: inline-block;
 }
+
+// 處方通用樣式
+.common-base {
+  @include flex-center(flex-start);
+  flex-wrap: wrap;
+  .item {
+    box-sizing: border-box;
+    padding: 6px;
+    width: 170px;
+    // height: 110px;
+    background: #ffffff;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
+    .head {
+      padding: 6px 0 6px;
+      @include flex-center(space-between);
+      span {
+        font-size: 18px;
+        font-family: PingFangSC-Medium, PingFang SC;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.85);
+        line-height: 26px;
+      }
+    }
+    .el-form-item {
+      margin-bottom: 0;
+    }
+  }
+  .use-method {
+    flex: 1;
+  }
+}

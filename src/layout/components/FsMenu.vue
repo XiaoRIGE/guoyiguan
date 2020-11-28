@@ -45,6 +45,7 @@
         <el-menu-item index="prescription">中草药方剂管理</el-menu-item>
         <el-menu-item index="acupuncture">针灸管理</el-menu-item>
         <el-menu-item index="product">成品管理</el-menu-item>
+        <el-menu-item index="herbal">中草藥管理</el-menu-item>
       </el-submenu>
       <el-menu-item index="setting">
         <i class="el-icon-setting"></i>

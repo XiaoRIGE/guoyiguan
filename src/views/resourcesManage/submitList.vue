@@ -1,7 +1,7 @@
 <!-- =========================================================================================
-     File Name: acupuncture
-     Description: 針灸管理
-     Component Name: acupuncture
+     File Name: submitList
+     Description: 提交記錄
+     Component Name: submitList
      ----------------------------------------------------------------------------------------
      Item Name:
      Author: srj
@@ -9,9 +9,8 @@
      Change time:  2020-10-26 20:38:02
 ========================================================================================== -->
 <template>
-  <div class="acupuncture">
+  <div class="submitList">
     <el-card>
-
       <el-form class="search-box" ref="form" :model="form" label-width="40px">
         <el-row class="row" :gutter="20">
           <el-col :span="3">
@@ -20,8 +19,16 @@
             </el-form-item>
           </el-col>
           <el-col :span="3">
+            <el-form-item label="處方">
+              <el-select v-model="form.region" placeholder="请选择">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="3">
             <el-form-item label="类型">
-              <el-select v-model="form.region" placeholder="请选择活动区域">
+              <el-select v-model="form.region" placeholder="请选择">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
               </el-select>
@@ -29,15 +36,15 @@
           </el-col>
           <el-col :span="3">
             <el-form-item label="疾病">
-              <el-select v-model="form.region" placeholder="请选择活动区域">
+              <el-select v-model="form.region" placeholder="请选择">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="3">
-            <el-form-item label="疗程">
-              <el-select v-model="form.region" placeholder="请选择活动区域">
+            <el-form-item label="症侯">
+              <el-select v-model="form.region" placeholder="请选择">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
               </el-select>
@@ -45,33 +52,43 @@
           </el-col>
           <el-col :span="3">
             <el-form-item label="功效">
-              <el-select v-model="form.region" placeholder="请选择活动区域">
+              <el-select v-model="form.region" placeholder="请选择">
                 <el-option label="区域一" value="shanghai"></el-option>
                 <el-option label="区域二" value="beijing"></el-option>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :span="3">
-            <div class="btn-box">
-              <el-button >查询</el-button>
-              <el-button type="primary">新增處方</el-button>
-            </div>
+            <el-form-item label="狀態">
+              <el-select v-model="form.region" placeholder="请选择">
+                <el-option label="区域一" value="shanghai"></el-option>
+                <el-option label="区域二" value="beijing"></el-option>
+              </el-select>
+            </el-form-item>
+          </el-col>
+          <el-col :span="4">
+            <el-form-item label="日期">
+              <el-date-picker
+                v-model="form.date"
+                type="date"
+                placeholder="选择日期"
+              >
+              </el-date-picker>
+            </el-form-item>
           </el-col>
           <el-col :span="3">
             <div class="btn-box">
-              <el-button @click="goRouter">申請記錄</el-button>
+              <el-button>查詢</el-button>
             </div>
           </el-col>
         </el-row>
       </el-form>
       <div class="wrapper">
-        <el-table
-          @selection-change="handleSelectionChange"
-          :data="tableData"
-          style="width: 100%"
-        >
-          <el-table-column type="selection" width="55"> </el-table-column>
+        <!-- @selection-change="handleSelectionChange" -->
+        <el-table :data="tableData" style="width: 100%">
+          <!-- <el-table-column type="selection" width="55"> </el-table-column> -->
           <!-- type="expand" -->
+          <el-table-column prop="name" label="序號"> </el-table-column>
           <el-table-column prop="name" label="分类">
             <!-- <template slot-scope="scope">
                   <span>{{ scope.row.name }}</span>
@@ -81,17 +98,15 @@
           <el-table-column prop="name" label="类型"> </el-table-column>
           <el-table-column prop="name" label="疾病"> </el-table-column>
           <el-table-column prop="name" label="症候"> </el-table-column>
-          <el-table-column prop="address" min-width="120" label="操作">
+          <el-table-column prop="name" label="提交時間"> </el-table-column>
+          <el-table-column prop="name" label="狀態"> </el-table-column>
+          <el-table-column prop="address" min-width="150" label="操作">
             <template slot-scope="scope">
               <el-button @click="handleShow(scope.row)" type="text" size="small"
                 >查看</el-button
               >
-              <el-button @click="handleEdit(scope.row)" type="text" size="small"
-                >修改</el-button
-              >
-              <el-button type="text" size="small"
-                >提交審核</el-button
-              >
+              <el-button type="text" size="small">修改</el-button>
+              <el-button type="text" size="small">提交審核</el-button>
               <!-- <el-divider direction="vertical" />
             <el-button @click="handleShow(scope.row)" type="text" size="small"
               >详情</el-button
@@ -111,12 +126,13 @@
 <script>
 import Pagination from '@/components/common/Pagination'
 export default {
-  name: 'acupuncture',
+  name: 'submitList',
   data () {
     return {
       form: {
         name: '',
-        region: ''
+        region: '',
+        date: ''
       },
       paginationConfig: {
         total: 50,
@@ -161,17 +177,13 @@ export default {
     },
     goRouter () {
       this.$router.push({ name: 'submitList' })
-    },
-    handleEdit (row) {
-      console.log(row)
-      this.$router.push({ name: 'edit' })
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.acupuncture {
+.submitList {
   .search-box {
     .row {
       box-sizing: border-box;
