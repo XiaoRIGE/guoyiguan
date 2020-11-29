@@ -20,12 +20,12 @@
             <current-conversation />
           </el-col>
         </el-row>
-        <a
+        <!-- <a
           class="official-link"
           href="https://cloud.tencent.com/product/im"
           target="_blank"
           @click="handleLinkClick"
-        >登录 即时通信IM 官网，了解更多体验方式</a>
+        >登录 即时通信IM 官网，了解更多体验方式</a> -->
       </div>
       <call-layer ref="callLayer" class="chat-wrapper"/>
       <image-previewer />
@@ -381,7 +381,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 100px;
 }
 
 .container

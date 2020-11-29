@@ -1,6 +1,6 @@
 <template>
   <div class="qr-code-list-wrapper">
-    <div class="header">
+    <!-- <div class="header">
       其他体验方式 |
       <a
         href="https://cloud.tencent.com/product/im"
@@ -32,7 +32,7 @@
         />
         <div class="text">Android</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -41,11 +41,11 @@ import MTA from '../utils/mta'
 
 export default {
   name: 'qr-code-list',
-  mounted() {
+  mounted () {
     MTA.clickStat('link_one', { show: 'true' })
   },
   methods: {
-    handlClick() {
+    handlClick () {
       MTA.clickStat('link_one', { click: 'true' })
     }
   }

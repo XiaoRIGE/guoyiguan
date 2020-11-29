@@ -53,10 +53,10 @@
         <i class="el-icon-setting"></i>
         <span slot="title">个人设置</span>
       </el-menu-item>
-      <!-- <el-menu-item index="chat">
+      <el-menu-item index="chat">
         <i class="el-icon-setting"></i>
         <span slot="title">聊天室</span>
-      </el-menu-item> -->
+      </el-menu-item>
     </el-menu>
   </div>
 </template>
