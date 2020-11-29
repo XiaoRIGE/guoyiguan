@@ -23,13 +23,13 @@
         <el-menu-item index="subscribe">门诊预约</el-menu-item>
         <el-menu-item index="review">门诊回顾</el-menu-item>
       </el-submenu>
-      <el-submenu index="patientCenter">
+      <!-- <el-submenu index="patientCenter">
         <span slot="title"> <i class="el-icon-menu"></i>患者中心</span>
-      </el-submenu>
-      <!-- <el-menu-item index="patientCenter">
+      </el-submenu> -->
+      <el-menu-item index="patientCenter">
         <i class="el-icon-menu"></i>
         <span slot="title">患者中心</span>
-      </el-menu-item> -->
+      </el-menu-item>
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -49,10 +49,10 @@
         <el-menu-item index="product">成品管理</el-menu-item>
         <el-menu-item index="herbal">中草藥管理</el-menu-item>
       </el-submenu>
-      <el-submenu index="setting">
-        <span slot="title"><i class="el-icon-setting"></i>个人设置</span>
-      </el-submenu>
-      <!-- <el-menu-item index="setting">个人设置</el-menu-item> -->
+      <el-menu-item index="setting">
+        <i class="el-icon-setting"></i>
+        <span slot="title">个人设置</span>
+      </el-menu-item>
       <!-- <el-menu-item index="chat">
         <i class="el-icon-setting"></i>
         <span slot="title">聊天室</span>
